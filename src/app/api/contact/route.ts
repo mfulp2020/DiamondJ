@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { site } from "@/lib/site";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function requiredEnv() {
   return (
     process.env.RESEND_API_KEY &&
@@ -49,6 +47,7 @@ export async function POST(req: Request) {
       `Location: ${location || "(not provided)"}\n\n` +
       `Message:\n${message}\n`;
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: `${site.name} <${process.env.CONTACT_FROM_EMAIL}>`,
       to: process.env.CONTACT_TO_EMAIL!,

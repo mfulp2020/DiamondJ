@@ -1,6 +1,6 @@
-import { Nav } from "@/components/Nav";
+import Nav from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { Section } from "@/components/Section";
+import Section from "@/components/Section";
 import { menu } from "@/lib/menu";
 import Link from "next/link";
 
